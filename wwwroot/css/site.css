@@ -1,0 +1,55 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+.btn{
+  position: relative;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.div_emploees{
+  background-color: bisque;
+  width: 370px;
+  padding: 40px;
+  margin: 30px auto
+}
+.btn_add_emploee{
+  background-color: green;
+  position: fixed;
+  right: 500px;
+  top: 300px;
+  width: 200px;
+  height: 50px;
+}
+.btn_import{
+  position: fixed;
+  right: 400px;
+  top: 400px;
+}
+.btn_export{
+  background-color: green;
+  position: fixed;
+  right: 500px;
+  top: 500px;
+  width: 200px;
+  height: 50px;
+}
+.text-center{
+  position: relative;
+}

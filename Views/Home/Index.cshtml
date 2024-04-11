@@ -1,0 +1,28 @@
+﻿@model List<Org>
+@using System.Diagnostics;
+@using Microsoft.AspNetCore.Mvc;
+@using app_test_job.Models;
+@using app_test_job.bd;
+@using Microsoft.EntityFrameworkCore;
+@{
+    ViewData["Title"] = "Home Page";
+    String? URL = Url.Action("emploee","Emploee");
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{
+        foreach(var item in Model){
+            <div class="div_emploees" onclick="location.href='@URL'+'?name='+'@item.name'">
+                <p>Компания: @item.name</p> 
+                <p>ИНН: @item.Inn</p>
+                <p>адресс @item.adres.PIndex Г.@item.adres.city ул.@item.adres.street д.@item.adres.Nhouse к.@item.adres.NApartament  стр.@item.adres.NStructure</p>
+            </div>
+        }
+    }
+    <button  type="button" onclick="location.href='@Url.Action("AddOrg", "Home")'" class="btn_add_emploee">Добавить организацию</button>
+    <form enctype="multipart/form-data" id="btn_import_form" class="btn_import" asp-action="download" onchange="submit()" asp-controller="Home" method="post" ><label for="">импорт</label> <input  name="filevbase" type="file"></form>
+   
+    <button type="button" onclick="location.href='@Url.Action("download", "Home")'" class="btn_export">Экспорт csv</button>
+ 
+   
+</div>

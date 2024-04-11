@@ -1,0 +1,25 @@
+@model List<Employee>
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Список сотрудников компании @ViewData["name"]</h1>
+    @{
+        foreach(var item in Model){
+            <div  class="div_emploees"> 
+                <p>ФИО: @item.Secondname @item.NameE @item.otche</p>
+                <p>дата рождения: @item.Dates.ToString("d")</p>
+                <p>паспортные данные:</p>
+                <p>серия @item.Pser номер @item.Pnumb</p>
+            </div>
+        }
+    }
+    
+    <button type="button" onclick="location.href='@Url.Action("AddEmploee", "Emploee", new{company=@ViewData["name"]})'" class="btn_add_emploee">Добавить сотрудника</button>
+    <form enctype="multipart/form-data" id="btn_import_form" class="btn_import" asp-action="download" onchange="submit()" asp-controller="Emploee" method="post" ><label for="">импорт</label> <input  name="filebase" type="file"> <input type="text" hidden name="name" value='@ViewData["name"]'></form>
+    <button type="button" onclick="location.href='@Url.Action("download", "Emploee")'" class="btn_export">Экспорт csv</button>
+ 
+ 
+</div>

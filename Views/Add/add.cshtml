@@ -1,0 +1,58 @@
+@model AddModel;
+
+@{
+
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    switch( ViewData["status"]){
+        case 0:
+            <div class="text-center">
+                <h1> добавление @ViewData["name"]</h1>
+                <form asp-action='@ViewData["action"]'  asp-controller='@ViewData["Controller"]'  method="post">
+                    <input type="text", hidden name="NameCompany" value='@ViewData["Company"]'>
+                    <label>имя</label>
+                    <input placeholder="Введите имя" asp-for=@Model.employee.NameE><br>
+                    <label>фамиия</label>
+                    <input placeholder="Введите фамилию"  asp-for=@Model.employee.Secondname ><br>
+                    <label>отчество</label>
+                    <input placeholder="Введите" asp-for=@Model.employee.otche><br>
+                    <label>дата рождения</label>
+                    <input placeholder="Введите" asp-for=@Model.employee.Dates><br>
+                    <label>серия</label>
+                    <input placeholder="Серия"  asp-for=@Model.employee.Pser><br>
+                    <label>номер</label>
+                    <input placeholder="Номер" asp-for=@Model.employee.Pnumb><br>
+                    <input type="submit" value="добавить">
+
+                </form>
+            </div>
+            break;
+        case 1:
+            <div class="text-center">
+                <form asp-action='@ViewData["action"]'  asp-controller='@ViewData["Controller"]'  method="post">
+                    <label>название</label>
+                    <input placeholder="Введите название" asp-for=@Model.org.name><br>
+                    <label>Inn</label>
+                    <input placeholder="Введите Inn" type="number"  asp-for=@Model.org.Inn ><br>
+                    <label>Почтовый индекс</label>
+                    <input placeholder="Введите почтовый индекс" asp-for=@Model.adres.PIndex><br>
+                    <label>Город</label>
+                    <input placeholder="Введите город" asp-for=@Model.adres.city><br>
+                    <label>Улица</label>
+                    <input placeholder="улица"  asp-for=@Model.adres.street><br>
+                    <label>номер дома</label>
+                    <input placeholder="Номер дома" asp-for=@Model.adres.Nhouse><br>
+                    <label>номер квартиры</label>
+                    <input placeholder="Номер квартиры" asp-for=@Model.adres.NApartament><br>
+                    <label>Строение</label>
+                    <input placeholder="Строение" asp-for=@Model.adres.NStructure><br>
+                    <input type="submit" value="добавить">
+
+                </form>
+            </div>
+            break;   
+    }
+}
+
